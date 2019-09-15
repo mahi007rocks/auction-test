@@ -12,6 +12,9 @@
       </li>
     </div>
   </nav>
+<div id="test">
+  <%= select_tag "product", options_for_select(['recent_projects','category_asc','username_asc','project_tite']) %>
+</div>
 
  <h1>Listing products</h1>
 
@@ -41,3 +44,11 @@
   <%= link_to('Login', new_user_session_path) %>  
   </li>
 <% end %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $("#test").on("change", function(){
+      window.location = '/welcome/index/?sort_id='+ $("#test").val()
+    });
+  });
+</script>
